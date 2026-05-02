@@ -1,0 +1,22 @@
+{
+  "name": "opsmem",
+  "version": "1.0.0",
+  "description": "CLI tool to fetch, cache, and summarize GitHub repo incidents using Ollama",
+  "type": "module",
+  "bin": {
+    "opsmem": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.92.0",
+    "@octokit/rest": "^21.0.2",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "ollama": "^0.5.9",
+    "p-limit": "^7.3.0"
+  }
+}
