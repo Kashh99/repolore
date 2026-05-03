@@ -7,7 +7,7 @@ import { summarizeIssues } from './summarize.js';
 import { displaySummaries, displayRaw, displayHistory, displayQueryResults } from './display.js';
 
 program
-  .name('opsmem')
+  .name('repolore')
   .description('Fetch, cache, and summarize GitHub repo incidents')
   .version('1.0.0');
 

@@ -11,7 +11,7 @@
 ## Quick demo
 
 ```bash
-$ opsmem analyze https://github.com/sindresorhus/ora
+$ repolore analyze https://github.com/sindresorhus/ora
 
   Fetching sindresorhus/ora from GitHub...
   Using Claude (claude-haiku-4-5-20251001)
@@ -38,14 +38,14 @@ $ opsmem analyze https://github.com/sindresorhus/ora
 ```
 
 ```bash
-$ opsmem query "ctrl+c"
+$ repolore query "ctrl+c"
 
   Query results for: "ctrl+c"
   sindresorhus/ora — 3 matching issues
 ```
 
 ```bash
-$ opsmem history
+$ repolore history
 
   Analyzed Repos
   ┌─────────────────────────┬──────────────────────────┐
@@ -58,10 +58,10 @@ $ opsmem history
 ## Installation
 
 ```bash
-npm install -g opsmem
+npm install -g repolore
 ```
 
-Create `~/.opsmem/.env`:
+Create `~/.repolore/.env`:
 
 ```env
 GITHUB_TOKEN=your_github_personal_access_token
@@ -72,7 +72,7 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 
 Your GitHub token needs `repo` read scope. Generate one at github.com/settings/tokens.
 
-If you skip `ANTHROPIC_API_KEY`, opsmem falls back to [Ollama](https://ollama.ai) running locally:
+If you skip `ANTHROPIC_API_KEY`, repolore falls back to [Ollama](https://ollama.ai) running locally:
 
 ```bash
 ollama pull mistral
@@ -82,26 +82,26 @@ ollama pull mistral
 
 ```bash
 # Fetch and summarize a repo's incidents
-opsmem analyze https://github.com/owner/repo
+repolore analyze https://github.com/owner/repo
 
 # Skip AI summarization — instant raw view for demos or testing
-opsmem analyze https://github.com/owner/repo --no-ai
+repolore analyze https://github.com/owner/repo --no-ai
 
 # Force re-fetch (ignore cache)
-opsmem analyze https://github.com/owner/repo --refresh
+repolore analyze https://github.com/owner/repo --refresh
 
 # Search everything you've analyzed
-opsmem query "memory leak"
+repolore query "memory leak"
 
 # List all analyzed repos and when they were cached
-opsmem history
+repolore history
 ```
 
 ## How it works
 
 1. Fetches the last 50 issues (with comments) and 30 PRs from GitHub via the REST API
 2. Sends each item to an LLM with a structured prompt asking for a one-line summary, status, contributors, and linked fix
-3. Stores the raw GitHub data in `~/.opsmem/cache/` as JSON — subsequent runs use the cache, not GitHub
+3. Stores the raw GitHub data in `~/.repolore/cache/` as JSON — subsequent runs use the cache, not GitHub
 4. Groups summaries by shared keywords to surface recurring patterns
 5. Lets you search the raw cached data by keyword without touching an LLM again
 
@@ -118,9 +118,9 @@ opsmem history
 
 ## Roadmap
 
-- [ ] `opsmem export` — dump summaries to Markdown or JSON for sharing in runbooks
+- [ ] `repolore export` — dump summaries to Markdown or JSON for sharing in runbooks
 - [ ] Per-repo summary caching so re-analyzing doesn't call the LLM again
-- [ ] `opsmem compare <repo-a> <repo-b>` — find shared failure patterns across two repos
+- [ ] `repolore compare <repo-a> <repo-b>` — find shared failure patterns across two repos
 - [ ] GitHub Actions integration to auto-analyze on incident close
 
 ## License

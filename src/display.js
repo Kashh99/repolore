@@ -194,7 +194,7 @@ export function displayRaw(repoKey, issues, prs) {
 
 export function displayHistory(repos) {
   if (repos.length === 0) {
-    console.log(chalk.yellow('\n  No repos analyzed yet. Run: opsmem analyze <github-url>\n'));
+    console.log(chalk.yellow('\n  No repos analyzed yet. Run: repolore analyze <github-url>\n'));
     return;
   }
 

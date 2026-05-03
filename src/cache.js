@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
-const CACHE_DIR = path.join(os.homedir(), '.opsmem', 'cache');
+const CACHE_DIR = path.join(os.homedir(), '.repolore', 'cache');
 
 function ensureCacheDir() {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
