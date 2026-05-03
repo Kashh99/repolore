@@ -1,4 +1,4 @@
-# opsmem — operational memory for engineering teams
+# repolore — operational memory for engineering teams
 
 > AI that remembers how your team solved problems
 
